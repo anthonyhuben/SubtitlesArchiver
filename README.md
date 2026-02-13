@@ -1,4 +1,4 @@
-# Subtitles Archiver - Firefox Extension
+# Subtitles Archiver - Browser Extension
 
 A powerful extension to download and convert subtitles from internet videos.
 
