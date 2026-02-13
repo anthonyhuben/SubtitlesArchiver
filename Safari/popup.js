@@ -1,6 +1,9 @@
 /**
- * Popup UI Logic
+ * Popup UI Logic - Safari Compatible
  */
+
+// Compatibility layer for Safari/Chrome APIs
+const API = typeof browser !== 'undefined' ? browser : chrome;
 
 let currentTab = null;
 let detectedVideos = [];
@@ -25,7 +28,7 @@ const closeBtn = document.querySelector('.close');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+  API.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     currentTab = tabs[0];
     scanForVideos();
   });
@@ -75,9 +78,9 @@ function scanForVideos() {
   showLoading(true);
   hideAllSections();
 
-  chrome.tabs.sendMessage(currentTab.id, { action: 'detectVideos' }, (response) => {
-    if (chrome.runtime.lastError) {
-      const error = chrome.runtime.lastError.message;
+  API.tabs.sendMessage(currentTab.id, { action: 'detectVideos' }, (response) => {
+    if (API.runtime.lastError) {
+      const error = API.runtime.lastError.message;
       let message = 'Error: Could not scan this page. Try refreshing.';
 
       if (error.includes('Cannot access') || error.includes('extension')) {
@@ -454,7 +457,7 @@ function downloadVideoSubtitles(video, format, filename, subtitleIndex = 0) {
   }
 
   const subtitle = video.subtitles[subtitleIndex];
-  chrome.runtime.sendMessage({
+  API.runtime.sendMessage({
     action: 'fetchAndDownload',
     url: subtitle.src,
     filename: filename,
@@ -494,7 +497,7 @@ function convertAndDownloadSubtitles(video, targetFormat, filename, subtitleInde
   const subtitle = video.subtitles[subtitleIndex];
   const sourceFormat = (subtitle.format || 'unknown').toUpperCase();
 
-  chrome.runtime.sendMessage({
+  API.runtime.sendMessage({
     action: 'convertAndDownload',
     url: subtitle.src,
     filename: filename,
@@ -529,7 +532,7 @@ function downloadSubtitleUrl(url, index) {
   const format = url.split('.').pop().toLowerCase();
   const filename = `subtitle.${format}`;
 
-  chrome.runtime.sendMessage({
+  API.runtime.sendMessage({
     action: 'downloadUrl',
     url: url,
     filename: filename
