@@ -1,0 +1,206 @@
+================================================================================
+INSTALLATION & SETUP GUIDE - SUBTITLES ARCHIVER FIREFOX EXTENSION
+================================================================================
+
+STEP-BY-STEP INSTALLATION (5 MINUTES)
+
+1. OPEN FIREFOX
+   - Click the Firefox icon
+   - Wait for it to fully load
+
+2. NAVIGATE TO about:debugging
+   - Type this in the address bar: about:debugging
+   - Press Enter
+
+3. SELECT "THIS FIREFOX"
+   - On the left sidebar, click "This Firefox"
+
+4. LOAD THE EXTENSION
+   - Click the "Load Temporary Add-on" button
+   - Navigate to this folder (SubtitlesArchiver)
+   - Select "manifest.json"
+   - Click "Open"
+
+5. CONFIRM INSTALLATION
+   - You should see "Subtitles Archiver" in the list
+   - The extension is now active!
+
+6. PIN TO TOOLBAR (OPTIONAL)
+   - Click the extension icon in the toolbar
+   - Click the "Pin" icon
+   - Icon will stay in toolbar for quick access
+
+FIRST TEST
+
+1. Open any website with videos
+   - Try: YouTube.com, Vimeo.com, or any HTML5 video
+
+2. Click the extension icon
+   - Look for purple icon in toolbar
+   - A popup window will appear
+
+3. Wait for scan to complete
+   - You should see "Found X video(s)"
+
+4. Click "📥 Download" next to any video
+   - Select "SRT" format (most compatible)
+   - Click "✓ Download"
+
+5. Check Downloads folder
+   - Press Ctrl+J (Windows) or Cmd+Shift+J (Mac)
+   - Your subtitle file should be there!
+
+SUCCESSFUL INSTALLATION CHECKLIST
+
+  [ ] Firefox opened
+  [ ] about:debugging loaded
+  [ ] "This Firefox" selected
+  [ ] manifest.json loaded
+  [ ] Extension appears in list
+  [ ] Icon visible in toolbar
+  [ ] Clicked extension icon
+  [ ] Popup appeared with content
+  [ ] Downloaded a subtitle
+  [ ] File in Downloads folder
+  [ ] Successfully installed! 🎉
+
+MAKING IT PERMANENT
+
+The above method creates a TEMPORARY installation (removed on restart).
+
+For permanent installation:
+
+1. Create a .xpi file (packaged extension)
+2. Sign it with Mozilla (free developer account)
+3. Install from about:addons
+
+OR for personal use:
+1. Go to: about:config
+2. Search: xpinstall.signatures.required
+3. Toggle to: false
+4. Then use: about:debugging method above (persists)
+
+⚠️  WARNING: Disabling signature requirements is for personal use only!
+
+TROUBLESHOOTING INSTALLATION
+
+Problem: "Could not load extension"
+Solution:
+  - Ensure manifest.json is in the correct folder
+  - Check file isn't corrupted
+  - Try restarting Firefox
+
+Problem: Icon doesn't appear in toolbar
+Solution:
+  - Refresh the page (Ctrl+R or Cmd+R)
+  - Restart Firefox
+  - Click ≡ menu to find extension
+
+Problem: Extension loads but does nothing
+Solution:
+  - Refresh webpage
+  - Check Firefox console (F12)
+  - Try on a different website
+
+Problem: "about:debugging" doesn't work
+Solution:
+  - Ensure Firefox is up to date
+  - Try: about:addons instead
+  - Restart Firefox
+
+REMOVING THE EXTENSION
+
+Temporary installation removal:
+  1. Go to about:debugging
+  2. Click "Remove" button next to extension
+
+Permanent uninstall:
+  1. Go to about:addons
+  2. Find "Subtitles Archiver"
+  3. Click the ⋯ menu
+  4. Select "Remove"
+
+SYSTEM REQUIREMENTS
+
+Minimum:
+  - Firefox 109 or newer (February 2022+)
+  - Windows 10+, macOS 10.12+, Linux (most distros)
+  - 150 MB free disk space
+  - Internet connection
+
+Recommended:
+  - Firefox latest version
+  - Modern CPU
+  - 500 MB+ free space
+
+BROWSER COMPATIBILITY
+
+Currently supported:
+  ✅ Firefox (Windows, Mac, Linux)
+  ✅ Firefox Mobile (Android)
+
+Not supported:
+  ❌ Chrome (different extension format)
+  ❌ Safari (different extension format)
+  ❌ Edge (possible with modifications)
+
+PERMISSIONS EXPLANATION
+
+The extension requests these permissions:
+
+  activeTab
+    → To know which tab you're viewing
+    → Used to detect videos on current page
+
+  scripting
+    → To inject detection script into web pages
+    → Used to find videos and subtitles
+
+  downloads
+    → To save files to your computer
+    → Used to download subtitles
+
+  storage
+    → To remember your preferences
+    → Used to save settings
+
+  <all_urls>
+    → To access any website
+    → Used to detect videos and subtitles
+
+None of these are used for:
+  ✓ Tracking or analytics
+  ✓ Collecting personal data
+  ✓ Sending data to external servers
+  ✓ Modifying web content (except detection)
+
+All processing happens locally on your computer!
+
+NEXT STEPS
+
+1. Follow the installation steps above
+2. Read: 00_START_HERE.txt or QUICKSTART.md
+3. Try downloading a subtitle
+4. Explore different formats
+5. Read README.md for advanced features
+
+SUPPORT
+
+Questions about installation?
+  → Check this file (INSTALLATION.txt)
+  → Check 00_START_HERE.txt
+  → Check QUICKSTART.md
+
+Technical questions?
+  → Check ARCHITECTURE.md
+  → Check README.md
+
+Still having issues?
+  1. Restart Firefox
+  2. Reload extension
+  3. Try different website
+  4. Check console (F12)
+
+================================================================================
+Ready? Follow the "STEP-BY-STEP INSTALLATION" section above! 🚀
+================================================================================

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subtitles Archiver</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div id="toolbar" style="display: flex; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(161, 239, 228, 0.15); background: rgba(39, 40, 34, 0.7);">
+      <button id="refresh-btn" class="btn btn-primary" style="flex: 1;">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor">
+          <path d="M15 9a6 6 0 11-1.255-3.708" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M13.5 3v3h-3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        Refresh
+      </button>
+      <button id="easy-mode-btn" class="btn btn-primary" style="flex: 1; background: linear-gradient(135deg, #a1efe4 0%, #8de6d8 100%) !important; color: #272822 !important; border-color: #7dded0 !important;">
+        ⚡ Easy Mode
+      </button>
+    </div>
+
+    <div id="status" class="status-message" style="display: none;"></div>
+
+    <div id="loading" class="spinner" style="display: none;">
+      <div class="spinner-circle"></div>
+      <p>Scanning for videos...</p>
+    </div>
+
+    <div id="videos-section" style="display: none;">
+      <div class="section-header">
+        <h2>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M8 7.5l5 2.5-5 2.5V7.5z" fill="currentColor"/>
+            <circle cx="5" cy="5.5" r="0.8" fill="currentColor"/>
+          </svg>
+          Found Videos
+        </h2>
+        <span class="count" id="video-count"></span>
+      </div>
+
+      <div id="videos-list" class="videos-list"></div>
+    </div>
+
+    <div id="subtitles-section" style="display: none;">
+      <div class="section-header">
+        <h2>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <line x1="4.5" y1="11" x2="6.5" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13.5" y1="11" x2="15.5" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.5" y1="13.5" x2="8.5" y2="13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+            <line x1="10" y1="13.5" x2="15.5" y2="13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+          Found Subtitles
+        </h2>
+        <span class="count" id="subtitle-count"></span>
+      </div>
+
+      <div id="subtitles-list" class="subtitles-list"></div>
+    </div>
+
+    <div id="empty-state" class="empty-state" style="display: none;">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#f5f5f7"/>
+        <rect x="20" y="24" width="40" height="32" rx="3" fill="#e5e5e8"/>
+        <rect x="22" y="26" width="36" height="28" rx="2" fill="white"/>
+        <circle cx="40" cy="40" r="8" fill="#d7d7db"/>
+        <path d="M37 37l6 3-6 3v-6z" fill="white"/>
+        <rect x="24" y="49" width="10" height="2" rx="1" fill="#d7d7db"/>
+        <rect x="36" y="49" width="8" height="2" rx="1" fill="#d7d7db"/>
+        <rect x="46" y="49" width="10" height="2" rx="1" fill="#d7d7db"/>
+      </svg>
+      <p>No videos detected on this page</p>
+      <small>Make sure the page has finished loading</small>
+    </div>
+
+  </div>
+
+  <div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title"></h2>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="subtitle-parser.js"></script>
+  <script src="i18n-utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

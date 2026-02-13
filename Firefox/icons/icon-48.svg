@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Green speech bubble with transparent background -->
+  <g>
+    <!-- Main bubble body with rounded corners -->
+    <path d="M 8 6 L 42 6 Q 45 6 45 9 L 45 32 Q 45 35 42 35 L 28 35 L 20 43 L 24 35 L 8 35 Q 5 35 5 32 L 5 9 Q 5 6 8 6 Z"
+          fill="#4CAF50" stroke="none"/>
+  </g>
+</svg>
